@@ -1,5 +1,5 @@
-![Image of soundstore]
-(https://github.com/bambangw665/SoundStore/blob/main/assets/images/soundtoreApp.jpg?raw=true)
+Image of soundstore
+https://github.com/bambangw665/SoundStore/blob/main/assets/images/soundtoreApp.jpg?raw=true
 
 
 
