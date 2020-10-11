@@ -1,6 +1,11 @@
-# sound_store
+![Image of soundstore]
+(https://github.com/bambangw665/SoundStore/blob/main/assets/images/soundtoreApp.jpg?raw=true)
 
-A new Flutter project.
+
+
+# Sound Store App
+
+Sound Store App menggunakan flutter SDK
 
 ## Getting Started
 
