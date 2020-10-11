@@ -1,17 +1,14 @@
-Image of soundstore
-https://github.com/bambangw665/SoundStore/blob/main/assets/images/soundtoreApp.jpg?raw=true
-
-
-
 # Sound Store App
 
-Sound Store App menggunakan flutter SDK
+![soundtoreApp](assets/images/soundtoreApp.jpg)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+Sound Store App merupakan sebuah applikasi yang dibuat menggunakan flutter SDK 
 
-A few resources to get you started if this is your first Flutter project:
+## Full UX & UX with Invision app
+bit.ly/2SOuQ0c
+
+
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
