@@ -5,10 +5,6 @@
 
 Sound Store App merupakan sebuah applikasi yang dibuat menggunakan flutter SDK 
 
-## Full UX & UX with Invision app
-bit.ly/2SOuQ0c
-
-
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
