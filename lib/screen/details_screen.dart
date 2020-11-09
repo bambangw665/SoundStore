@@ -117,7 +117,9 @@ class DetailsScreen extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.w500),
                               ),
-                              SizedBox(height: 5,),
+                              SizedBox(
+                                height: 5,
+                              ),
                               IconTheme(
                                 data: IconThemeData(
                                   color: Colors.amber,
@@ -132,10 +134,16 @@ class DetailsScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    color: Colors.blue,
-                    height: size.height * 0.2,
-                    padding: EdgeInsets.only(left: 20, right: 10),
-                    child: Text('This is example text for mobile apps in screen details, '),
+                    color: Colors.yellow,
+                    height: size.height * 0.3,
+                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    child: Text(
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and.',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   )
                 ],
               ),

@@ -1,5 +1,6 @@
 // import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sound_store/widgets/big_title_widget.dart';
 import 'package:sound_store/widgets/star_rating_display_widget.dart';
 
@@ -70,11 +71,28 @@ class SearchScreen extends StatelessWidget {
                     )),
               ),
             ),
-            SizedBox(
-              height: 30,
+            Container(
+              height: 20,
+              margin: EdgeInsets.symmetric(vertical: 20),
+              child: Container(
+                margin: EdgeInsets.only(left: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      icon: Icon(FontAwesomeIcons.thLarge),
+                      onPressed: null,
+                    ),
+                    IconButton(
+                      icon: Icon(FontAwesomeIcons.list),
+                      onPressed: null,
+                    )
+                  ],
+                ),
+              ),
             ),
             Container(
-              height: size.height * 0.5,
+              height: size.height * 0.6,
               margin: EdgeInsets.all(10),
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -108,7 +126,12 @@ class SearchScreen extends StatelessWidget {
                                   ),
                                   child: StarRatingDisplay(value: 4),
                                 ),
-                                Text('Rp 0', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                                Text(
+                                  'Rp 0',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ],
                             ),
                           ),
