@@ -51,7 +51,7 @@ class DetailsScreen extends StatelessWidget {
           ),
           Flexible(
             child: Container(
-              margin: EdgeInsets.only(top: 0, left: 15, right: 15, bottom: 15),
+              margin: EdgeInsets.only(top: 0, left: 15, right: 15, bottom: 20),
               height: size.height / 2,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20), color: Colors.white),
@@ -134,16 +134,22 @@ class DetailsScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    color: Colors.yellow,
-                    height: size.height * 0.3,
+                    height: size.height * 0.2,
                     padding: EdgeInsets.symmetric(horizontal: 30),
+                    color: Colors.blue,
                     child: Text(
                       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and.',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                       textAlign: TextAlign.center,
                     ),
+                  ),
+                  Container(
+                    height: 30,
+                    width: double.infinity,
+                    color: Colors.yellow,
+
                   )
                 ],
               ),

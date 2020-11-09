@@ -16,11 +16,11 @@ import '../../screen/logo_center.dart';
 import '../../screen/search_screen.dart';
 
 class Routes {
-  static const String logoCenter = '/';
+  static const String logoCenter = '/logo-center';
   static const String navigationButtomBar = '/navigation-buttom-bar';
   static const String homePage = '/home-page';
   static const String searchScreen = '/search-screen';
-  static const String detailsScreen = '/details-screen';
+  static const String detailsScreen = '/';
   static const all = <String>{
     logoCenter,
     navigationButtomBar,

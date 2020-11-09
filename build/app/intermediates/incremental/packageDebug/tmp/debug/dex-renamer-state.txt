@@ -1,4 +1,0 @@
-#Thu Oct 08 22:49:34 WIB 2020
-base.0=/Users/macbook/Documents/app/sound_store/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
