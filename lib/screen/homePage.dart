@@ -5,7 +5,6 @@ import 'package:sound_store/widgets/star_rating_display_widget.dart';
 // import 'widgets/costume_appbar_widget.dart';
 
 class HomePage extends StatelessWidget {
-
   final List<String> listGambar = [
     'assets/images/earphone1.png',
     'assets/images/earphone2.png',
@@ -32,7 +31,7 @@ class HomePage extends StatelessWidget {
               ),
               onPressed: () {
                 // navigation here
-              })
+              }),
         ],
       ),
       body: SafeArea(
@@ -53,6 +52,7 @@ class HomePage extends StatelessWidget {
                 height: 50,
               ),
               Container(
+                // color: Colors.blue,
                 margin: EdgeInsets.only(left: 15),
                 height: 300,
                 child: ListView.builder(
@@ -69,8 +69,7 @@ class HomePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20),
                                 image: DecorationImage(
                                   fit: BoxFit.contain,
-                                  image:
-                                      AssetImage(listGambar[index]),
+                                  image: AssetImage(listGambar[index]),
                                 )),
                             child: Container(
                               margin: EdgeInsets.only(bottom: 60),

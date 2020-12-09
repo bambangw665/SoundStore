@@ -44,11 +44,8 @@ class Router extends RouterBase {
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
     LogoCenter: (data) {
-      final args = data.getArgs<LogoCenterArguments>(
-        orElse: () => LogoCenterArguments(),
-      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => LogoCenter(key: args.key),
+        builder: (context) => LogoCenter(),
         settings: data,
       );
     },
@@ -77,14 +74,4 @@ class Router extends RouterBase {
       );
     },
   };
-}
-
-/// ************************************************************************
-/// Arguments holder classes
-/// *************************************************************************
-
-/// LogoCenter arguments holder class
-class LogoCenterArguments {
-  final Key key;
-  LogoCenterArguments({this.key});
 }

@@ -33,22 +33,25 @@ class _NavigationButtomBarState extends State<NavigationButtomBar> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.home),
-            title: Text('Home'),
+            label: 'Home',
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            title: Text('Search'),
+            // title: Text('Search'),
+            label: 'Search',
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.save),
-            title: Text('Save'),
+            // title: Text('Save'),
+            label: 'Save',
             backgroundColor: kPrimaryColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            title: Text('User'),
+            // title: Text('User'),
+            label: 'User',
             backgroundColor: Colors.blue[200],
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sound_store/widgets/star_rating_display_widget.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -59,11 +60,11 @@ class DetailsScreen extends StatelessWidget {
                 children: [
                   Container(
                     height: size.height * 0.1 - 50,
-                    width: double.infinity,
+                    width: size.height,
                     child: Stack(
                       overflow: Overflow
                           .visible, // this vidget digunain buat keluar dari parrent
-                      alignment: Alignment.topRight,
+                      // alignment: Alignment.topRight,
                       children: [
                         Positioned(
                           bottom: 10,
@@ -134,22 +135,62 @@ class DetailsScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: size.height * 0.2,
+                    height: size.height * 0.2 - 10,
+                    // color: Colors.blue,
                     padding: EdgeInsets.symmetric(horizontal: 30),
-                    color: Colors.blue,
                     child: Text(
                       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and.',
-                      style: TextStyle(
-                        fontSize: 18,
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
                       ),
                       textAlign: TextAlign.center,
                     ),
                   ),
                   Container(
-                    height: 30,
+                    height: size.height * 0.1 - 10,
+                    margin: EdgeInsetsDirectional.only(top: 10),
                     width: double.infinity,
-                    color: Colors.yellow,
-
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: size.height * 0.2,
+                          decoration: BoxDecoration(
+                            color: Colors.blue[800],
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                bottomLeft: Radius.circular(10)),
+                          ),
+                          child: TextButton(
+                            child: Text(
+                              'Buy Now',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            onPressed: () {},
+                          ),
+                        ),
+                        Container(
+                          width: size.height * 0.1 + 20,
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(10),
+                                bottomRight: Radius.circular(10)),
+                          ),
+                          child: TextButton(
+                            child: Text(
+                              'ADD Chart',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            onPressed: () {},
+                          ),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),

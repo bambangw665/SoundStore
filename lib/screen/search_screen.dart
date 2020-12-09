@@ -4,7 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sound_store/widgets/big_title_widget.dart';
 import 'package:sound_store/widgets/star_rating_display_widget.dart';
 
-class SearchScreen extends StatelessWidget {
+class SearchScreen extends StatefulWidget {
+  @override
+  _SearchScreenState createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -92,7 +97,7 @@ class SearchScreen extends StatelessWidget {
               ),
             ),
             Container(
-              height: size.height * 0.6,
+              height: size.height / 2,
               margin: EdgeInsets.all(10),
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -114,7 +119,7 @@ class SearchScreen extends StatelessWidget {
                                 image: AssetImage(listGambar[index]),
                               )),
                           child: Container(
-                            margin: EdgeInsets.only(bottom: 10),
+                            margin: EdgeInsets.only(bottom: 20),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.end,
