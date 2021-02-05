@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sound_store/model/destenasi_model.dart';
 import 'package:sound_store/widgets/star_rating_display_widget.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String attchmentIcons = 'assets/svg/details_icons.svg';
+  final DestinasiModel destination;
+  DetailsScreen({this.destination});
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -21,7 +25,9 @@ class DetailsScreen extends StatelessWidget {
               Icons.arrow_back_ios,
               color: Colors.white,
             ),
-            onPressed: () {}),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
         actions: [
           IconButton(
               icon: Icon(
@@ -37,13 +43,13 @@ class DetailsScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 20),
             height: size.height * 0.4,
-            width: double.infinity,
+            width: size.height * 0.5,
             child: Stack(
               fit: StackFit.expand,
               children: [
                 Positioned(
                   child: Image.asset(
-                    'assets/images/Headphone_noBG.png',
+                    destination.imageAsset,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -102,7 +108,7 @@ class DetailsScreen extends StatelessWidget {
                               ),
                               padding: EdgeInsets.only(bottom: 10),
                               child: Text(
-                                'Beats',
+                                destination.name,
                                 style: TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.w500),
                               ),
@@ -114,7 +120,7 @@ class DetailsScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Rp 0',
+                                destination.harga,
                                 style: TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.w500),
                               ),
@@ -139,7 +145,7 @@ class DetailsScreen extends StatelessWidget {
                     // color: Colors.blue,
                     padding: EdgeInsets.symmetric(horizontal: 30),
                     child: Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and.',
+                      destination.largeText,
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.normal,

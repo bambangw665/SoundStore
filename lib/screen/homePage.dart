@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:sound_store/model/destenasi_model.dart';
+import 'package:sound_store/screen/details_screen.dart';
 import 'package:sound_store/widgets/big_title_widget.dart';
 import 'package:sound_store/widgets/star_rating_display_widget.dart';
 
 // import 'widgets/costume_appbar_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final List<String> listGambar = [
     'assets/images/earphone1.png',
     'assets/images/earphone2.png',
-    'assets/images/soundstore.png'
+    'assets/images/headphone3.png'
   ];
 
   @override
@@ -40,60 +47,87 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 40,
+                height: 60,
               ),
               BigTitle(
                   firstTitle: 'Discover Your', secondTitle: 'Perfect Sound'),
               SizedBox(
                 height: 50,
               ),
-              kategoriHorizontal(),
+              Container(
+                height: 50,
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text(
+                      'Earphone',
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      'Headset',
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      'Headphone',
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(
                 height: 50,
               ),
               Container(
                 // color: Colors.blue,
                 margin: EdgeInsets.only(left: 15),
-                height: 300,
-                child: ListView.builder(
-                  itemCount: listGambar.length,
+                height: 250,
+                child: ListView(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => Container(
-                    width: 200,
-                    child: Column(
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            width: 180,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                image: DecorationImage(
-                                  fit: BoxFit.contain,
-                                  image: AssetImage(listGambar[index]),
-                                )),
-                            child: Container(
-                              margin: EdgeInsets.only(bottom: 60),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 13,
-                                    ),
-                                    child: StarRatingDisplay(value: 4),
+                  children: destinasiModels.map((destinations) {
+                    return FlatButton(
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return DetailsScreen(destination: destinations);
+                          }));
+                        },
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                width: 180,
+                                height: 200,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                            destinations.imageAsset))),
+                                child: Container(
+                                  margin: EdgeInsets.only(bottom: 60),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      IconTheme(
+                                          data: IconThemeData(
+                                            color: Colors.amber,
+                                            size: 13,
+                                          ),
+                                          child: StarRatingDisplay(value: 4))
+                                    ],
                                   ),
-                                  Text('Rp 0'),
-                                ],
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                          ],
+                        ));
+                  }).toList(),
                 ),
               ),
             ],
@@ -102,30 +136,31 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
-  Container kategoriHorizontal() {
-    return Container(
-      height: 25,
-      width: double.infinity,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Text(
-            'Earphone',
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-          ),
-          Text(
-            'Headset',
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-          ),
-          Text(
-            'Headphone',
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // same Container methods
 }
+
+var destinasiModels = [
+  DestinasiModel(
+    name: 'Airpods',
+    harga: 'Rp 2.000.000',
+    starRating: 5,
+    largeText:
+        'AirPods menghadirkan pengalaman mendengarkan yang tak tertandingi di seluruh perangkat Anda. Setiap model terhubung dengan mudah dan dilengkapi suara yang kaya dan berkualitas tinggi dalam desain nirkabel yang inovatif.',
+    imageAsset: 'assets/images/earphone1.png',
+  ),
+  DestinasiModel(
+    name: 'Airpods pro',
+    harga: 'Rp 4.000.000',
+    starRating: 5,
+    largeText:
+        'AirPods Pro adalah satu-satunyaheadphone in-ear denganPeredam Kebisingan Aktif yang terus beradaptasi dengan telinga Anda dan pas dikenakan — mencegah suara luar agar Anda dapat fokus pada apa yang sedang Anda dengarkan.',
+    imageAsset: 'assets/images/earphone2.png',
+  ),
+  DestinasiModel( 
+    name: 'Airpods Max',
+    harga: 'Rp 10.000.000',
+    starRating: 5,
+    largeText:
+        'Memperkenalkan AirPods Max — keseimbangan sempurna dari audio high-fidelity yang mempesona dan kemudahan dari AirPods. Pengalaman mendengar terbaik yang begitu personal hadir di sini..',
+    imageAsset: 'assets/images/headphone3.png',
+  ),
+];

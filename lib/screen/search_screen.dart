@@ -1,6 +1,8 @@
 // import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sound_store/model/destenasi_model.dart';
+import 'package:sound_store/screen/details_screen.dart';
 import 'package:sound_store/widgets/big_title_widget.dart';
 import 'package:sound_store/widgets/star_rating_display_widget.dart';
 
@@ -14,14 +16,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    List<String> listGambar = [
-      'assets/images/headphone1.png',
-      'assets/images/headphone2.png',
-      'assets/images/headphone3.png',
-      'assets/images/headphone4.png',
-      'assets/images/earphone1.png',
-      'assets/images/earphone2.png',
-    ];
+
 
     return Scaffold(
       appBar: AppBar(
@@ -99,53 +94,61 @@ class _SearchScreenState extends State<SearchScreen> {
             Container(
               height: size.height / 2,
               margin: EdgeInsets.all(10),
-              child: GridView.builder(
+              child: GridView(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 1 / 1,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                 ),
-                itemBuilder: (context, index) => Container(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          width: 180,
-                          decoration: BoxDecoration(
+                children: destinasiModels.map((destinations) {
+                  return FlatButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DetailsScreen(
+                            destination: destinations,
+                          );
+                        }));
+                      },
+                      child: Column(
+                        children: [
+                          Expanded(
+                              child: Container(
+                            width: 180,
+                            decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(listGambar[index]),
-                              )),
-                          child: Container(
-                            margin: EdgeInsets.only(bottom: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                IconTheme(
-                                  data: IconThemeData(
-                                    color: Colors.amber,
-                                    size: 13,
-                                  ),
-                                  child: StarRatingDisplay(value: 4),
-                                ),
-                                Text(
-                                  'Rp 0',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(destinations.imageAsset)),
                             ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                itemCount: listGambar.length,
+                            child: Container(
+                              margin: EdgeInsets.only(bottom: 20),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: <Widget>[
+                                  IconTheme(
+                                      data: IconThemeData(
+                                        color: Colors.amber,
+                                        size: 13,
+                                      ),
+                                      child: StarRatingDisplay(value: 4,),
+                                      ),
+                                      Text(
+                                        destinations.harga,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                        )
+                                ],
+                              ),
+                            ),
+                          ))
+                        ],
+                      ));
+                }).toList(),
               ),
             )
           ],
@@ -154,3 +157,54 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 }
+
+var destinasiModels = [
+  DestinasiModel(
+    name: 'Airpods 1',
+    harga: 'Rp 2.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/headphone1.png',
+  ),
+  DestinasiModel(
+    name: 'Airpods 2',
+    harga: 'Rp 4.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/headphone2.png',
+  ),
+  DestinasiModel(
+    name: 'Airpods 3',
+    harga: 'Rp 10.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/headphone3.png',
+  ),
+  DestinasiModel(
+    name: 'Airpods 4',
+    harga: 'Rp 3.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/headphone4.png',
+  ),
+  DestinasiModel(
+    name: 'Airpods 5',
+    harga: 'Rp 2.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/earphone1.png',
+  ),
+  DestinasiModel(
+    name: 'Airpods 6',
+    harga: 'Rp 1.000.000',
+    starRating: 5,
+    largeText:
+        'Memperkenalkan AirPods Max — keseimbangan sempurna dari audio high-fidelity yang mempesona dan kemudahan dari AirPods. Pengalaman mendengar terbaik yang begitu personal hadir di sini..',
+    imageAsset: 'assets/images/earphone2.png',
+  ),
+];
