@@ -12,12 +12,12 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-
-
+  
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -59,7 +59,7 @@ class _SearchScreenState extends State<SearchScreen> {
               width: size.width * 0.8,
               child: TextField(
                 decoration: InputDecoration(
-                    hintText: 'Seatch Here....',
+                    hintText: 'Search Here....',
                     hintStyle: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 20,

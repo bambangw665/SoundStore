@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class BigTitle extends StatelessWidget {
   const BigTitle({
     Key key,
-    @required this.firstTitle,
-    @required this.secondTitle,
+    this.firstTitle,
+    this.secondTitle,
   }) : super(key: key);
 
   final String secondTitle;

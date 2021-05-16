@@ -12,20 +12,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> listGambar = [
-    'assets/images/earphone1.png',
-    'assets/images/earphone2.png',
-    'assets/images/headphone3.png'
-  ];
+  // final List<String> listGambar = [
+  //   'assets/images/earphone1.png',
+  //   'assets/images/earphone2.png',
+  //   'assets/images/headphone3.png',
+  //   'assets/images/headphone3.png',
+  // ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
+        backgroundColor: Colors.blue,
+        // shadowColor: Colors.transparent,
         leading: IconButton(
-          icon: Icon(Icons.border_all, color: Colors.black),
+          icon: Icon(
+            Icons.border_all,
+            color: Colors.white,
+          ),
           onPressed: () => {
             // ExtendedNavigator.root.push(Routes.searchScreen),
           },
@@ -34,11 +39,19 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               icon: Icon(
                 Icons.notifications_none,
-                color: Colors.black,
+                color: Colors.white,
               ),
               onPressed: () {
                 // navigation here
               }),
+          IconButton(
+              icon: Icon(
+                Icons.shopping_bag_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // Nav icons shop here
+              })
         ],
       ),
       body: SafeArea(
@@ -155,7 +168,7 @@ var destinasiModels = [
         'AirPods Pro adalah satu-satunyaheadphone in-ear denganPeredam Kebisingan Aktif yang terus beradaptasi dengan telinga Anda dan pas dikenakan — mencegah suara luar agar Anda dapat fokus pada apa yang sedang Anda dengarkan.',
     imageAsset: 'assets/images/earphone2.png',
   ),
-  DestinasiModel( 
+  DestinasiModel(
     name: 'Airpods Max',
     harga: 'Rp 10.000.000',
     starRating: 5,

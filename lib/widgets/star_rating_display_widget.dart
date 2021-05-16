@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class StarRatingDisplay extends StatelessWidget {
   const StarRatingDisplay({
     Key key,
-    @required this.value,
+    this.value,
   }) : super(key: key);
 
   final int value;

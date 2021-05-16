@@ -27,11 +27,12 @@ dependencies:
   flutter_svg: ^0.19.0
   font_awesome_flutter: ^8.10.0
   google_fonts: ^1.1.1
+  marquee: 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: 
+  build_runner: null
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
