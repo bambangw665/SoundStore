@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sound_store/model/destenasi_model.dart';
 import 'package:sound_store/widgets/star_rating_display_widget.dart';
 
+
 class DetailsScreen extends StatelessWidget {
   final String attchmentIcons = 'assets/svg/details_icons.svg';
   final DestinasiModel destination;
@@ -43,7 +44,7 @@ class DetailsScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 20),
             height: size.height * 0.4,
-            width: size.height * 0.5,
+            // width: size.height * 0.5,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -61,7 +62,9 @@ class DetailsScreen extends StatelessWidget {
               margin: EdgeInsets.only(top: 0, left: 15, right: 15, bottom: 20),
               height: size.height / 2,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), color: Colors.white),
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+              ),
               child: Column(
                 children: [
                   Container(
@@ -92,7 +95,7 @@ class DetailsScreen extends StatelessWidget {
                   Container(
                     height: size.height * 0.1,
                     padding: EdgeInsets.symmetric(horizontal: 30),
-                    margin: EdgeInsets.only(top: 10),
+                    // margin: EdgeInsets.only(top: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -140,22 +143,28 @@ class DetailsScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
-                    height: size.height * 0.2 - 10,
-                    // color: Colors.blue,
-                    padding: EdgeInsets.symmetric(horizontal: 30),
-                    child: Text(
-                      destination.largeText,
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
+                  SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Expanded(
+                      flex: 2,
+                      child: Container(
+                        height: size.height * 0.2 - 10,
+                        // color: Colors.blue,
+                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        child: Text(
+                          destination.largeText,
+                          style: GoogleFonts.poppins(
+                            fontSize: 15,
+                            fontWeight: FontWeight.normal,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                   Container(
                     height: size.height * 0.1 - 10,
-                    margin: EdgeInsetsDirectional.only(top: 10),
+                    // margin: EdgeInsetsDirectional.only(top: 10),
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
