@@ -72,7 +72,7 @@ class DetailsScreen extends StatelessWidget {
                     width: size.height,
                     child: Stack(
                       overflow: Overflow
-                          .visible, // this vidget digunain buat keluar dari parrent
+                          .visible, // this widget digunain buat keluar dari parrent
                       // alignment: Alignment.topRight,
                       children: [
                         Positioned(
@@ -113,7 +113,7 @@ class DetailsScreen extends StatelessWidget {
                               child: Text(
                                 destination.name,
                                 style: TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.w500),
+                                    fontSize: 22, fontWeight: FontWeight.w500),
                               ),
                             ),
                           ],
@@ -125,7 +125,7 @@ class DetailsScreen extends StatelessWidget {
                               Text(
                                 destination.harga,
                                 style: TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.w500),
+                                    fontSize: 22, fontWeight: FontWeight.w500),
                               ),
                               SizedBox(
                                 height: 5,
@@ -145,20 +145,17 @@ class DetailsScreen extends StatelessWidget {
                   ),
                   SingleChildScrollView(
                     scrollDirection: Axis.vertical,
-                    child: Expanded(
-                      flex: 2,
-                      child: Container(
-                        height: size.height * 0.2 - 10,
-                        // color: Colors.blue,
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: Text(
-                          destination.largeText,
-                          style: GoogleFonts.poppins(
-                            fontSize: 15,
-                            fontWeight: FontWeight.normal,
-                          ),
-                          textAlign: TextAlign.center,
+                    child: Container(
+                      height: size.height * 0.2 - 10,
+                      // color: Colors.blue,
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      child: Text(
+                        destination.largeText,
+                        style: GoogleFonts.poppins(
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),

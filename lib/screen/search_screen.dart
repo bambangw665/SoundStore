@@ -12,12 +12,10 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-  
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -41,6 +39,7 @@ class _SearchScreenState extends State<SearchScreen> {
         ],
       ),
       body: SingleChildScrollView(
+
         child: Column(
           children: [
             SizedBox(
@@ -93,7 +92,7 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             Container(
               height: size.height / 2,
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.all(5),
               child: GridView(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -114,38 +113,82 @@ class _SearchScreenState extends State<SearchScreen> {
                       child: Column(
                         children: [
                           Expanded(
-                              child: Container(
-                            width: 180,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(destinations.imageAsset)),
-                            ),
                             child: Container(
-                              margin: EdgeInsets.only(bottom: 20),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
-                                  IconTheme(
-                                      data: IconThemeData(
-                                        color: Colors.amber,
-                                        size: 13,
-                                      ),
-                                      child: StarRatingDisplay(value: 4,),
-                                      ),
-                                      Text(
-                                        destinations.harga,
-                                        style: TextStyle(
+                              width: 200,
+                              decoration: BoxDecoration(
+                                boxShadow: <BoxShadow>[
+                                    BoxShadow(
+                                      color: Colors.grey[400].withOpacity(0.8),
+                                      blurRadius: 8,
+                                      offset: Offset(0, 5),
+                                    ),
+                                  ],
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(destinations.imageAsset)),
+                              ),
+                              child: Container(
+                                // color: Colors.blue,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Flexible(
+                                      child: Container(
+                                        height: 50,
+                                         padding: EdgeInsets.only(
+                                              left: 10, right: 10, top: 5),
+                                        decoration: BoxDecoration(
                                           color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                        )
-                                ],
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(10),
+                                            bottomRight: Radius.circular(10),
+                                          ),
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              destinations.name,
+                                              style: TextStyle(fontSize: 15),
+                                            ),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                IconTheme(
+                                                  data: IconThemeData(
+                                                    color: Colors.amber,
+                                                    size: 13,
+                                                  ),
+                                                  child: StarRatingDisplay(
+                                                      value: destinations
+                                                          .starRating),
+                                                ),
+                                                Text(
+                                                  destinations.harga,
+                                                  style: TextStyle(
+                                                      fontSize: 10,
+                                                      color: Colors.green),
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          ))
+                          )
                         ],
                       ));
                 }).toList(),

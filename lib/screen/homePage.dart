@@ -23,13 +23,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // backgroundColor: Colors.transparent,
-        backgroundColor: Colors.blue,
-        // shadowColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.blue,
+        shadowColor: Colors.transparent,
         leading: IconButton(
           icon: Icon(
             Icons.border_all,
-            color: Colors.white,
+            color: Colors.black,
           ),
           onPressed: () => {
             // ExtendedNavigator.root.push(Routes.searchScreen),
@@ -39,19 +39,11 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               icon: Icon(
                 Icons.notifications_none,
-                color: Colors.white,
+                color: Colors.black,
               ),
               onPressed: () {
                 // navigation here
               }),
-          IconButton(
-              icon: Icon(
-                Icons.shopping_bag_outlined,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // Nav icons shop here
-              })
         ],
       ),
       body: SafeArea(
@@ -92,12 +84,12 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 30,
               ),
               Container(
                 // color: Colors.blue,
                 margin: EdgeInsets.only(left: 15),
-                height: 250,
+                height: 300,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: destinasiModels.map((destinations) {
@@ -114,25 +106,78 @@ class _HomePageState extends State<HomePage> {
                               child: Container(
                                 width: 180,
                                 height: 200,
+                                margin: EdgeInsets.only(bottom: 50, top: 20),
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: AssetImage(
-                                            destinations.imageAsset))),
+                                  borderRadius: BorderRadius.circular(20),
+                                  boxShadow: <BoxShadow>[
+                                    BoxShadow(
+                                      color: Colors.grey[400].withOpacity(0.8),
+                                      blurRadius: 8,
+                                      offset: Offset(0, 5),
+                                    ),
+                                  ],
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(destinations.imageAsset),
+                                  ),
+                                ),
                                 child: Container(
-                                  margin: EdgeInsets.only(bottom: 60),
+                                  // color: Colors.blue,
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
-                                      IconTheme(
-                                          data: IconThemeData(
-                                            color: Colors.amber,
-                                            size: 13,
+                                      Flexible(
+                                        child: Container(
+                                          height: 50,
+                                          // width: 180,
+                                          padding: EdgeInsets.only(
+                                              left: 10, right: 10, top: 5),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(20),
+                                              bottomRight: Radius.circular(20),
+                                            ),
                                           ),
-                                          child: StarRatingDisplay(value: 4))
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                destinations.name,
+                                                style: TextStyle(fontSize: 15),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  IconTheme(
+                                                    data: IconThemeData(
+                                                      color: Colors.amber,
+                                                      size: 13,
+                                                    ),
+                                                    child: StarRatingDisplay(
+                                                        value: destinations
+                                                            .starRating),
+                                                  ),
+                                                  Text(
+                                                    destinations.harga,
+                                                    style: TextStyle(
+                                                        fontSize: 12,
+                                                        color: Colors.green),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
@@ -157,7 +202,7 @@ var destinasiModels = [
     harga: 'Rp 2.000.000',
     starRating: 5,
     largeText:
-        'AirPods menghadirkan pengalaman mendengarkan yang tak tertandingi di seluruh perangkat Anda. Setiap model terhubung dengan mudah dan dilengkapi suara yang kaya dan berkualitas tinggi dalam desain nirkabel yang inovatif.',
+        'AirPods menghadirkan pengalaman mendengarkan yang tak tertandingi di seluruh perangkat Anda. Setiap model terhubung dengan mudah dan dilengkapi suara yang kaya dan berkualitas tinggi dalam desain nirkabel yang inovatif dnkasdnlasndlasdnladnladnlsa daosndladnasld dioasndlasdnla dnasdkasnkn dadnaosdnas doasndoasn.',
     imageAsset: 'assets/images/earphone1.png',
   ),
   DestinasiModel(

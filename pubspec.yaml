@@ -27,7 +27,8 @@ dependencies:
   flutter_svg: ^0.19.0
   font_awesome_flutter: ^8.10.0
   google_fonts: ^1.1.1
-  marquee: 
+  marquee: null
+  
 
 dev_dependencies:
   flutter_test:

@@ -15,4 +15,5 @@ const double defaultPadding = 20.0;
 
 
 // SVG
+final String svgUser = 'assets/svg/svgUser.svg';
 
