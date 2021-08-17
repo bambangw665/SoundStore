@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sound_store/model/destenasi_model.dart';
 import 'package:sound_store/widgets/star_rating_display_widget.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String attchmentIcons = 'assets/svg/details_icons.svg';
@@ -31,19 +31,20 @@ class DetailsScreen extends StatelessWidget {
             }),
         actions: [
           IconButton(
-              icon: Icon(
-                Icons.notifications_none,
-                color: Colors.white,
-                size: 30,
-              ),
-              onPressed: null)
+            icon: Icon(
+              Icons.notifications_none,
+              color: Colors.white,
+              size: 30.sp,
+            ),
+            onPressed: null,
+          )
         ],
       ),
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 20),
-            height: size.height * 0.4,
+            margin: EdgeInsets.only(top: 20.h),
+            height: size.height / 3,
             // width: size.height * 0.5,
             child: Stack(
               fit: StackFit.expand,
@@ -52,15 +53,18 @@ class DetailsScreen extends StatelessWidget {
                   child: Image.asset(
                     destination.imageAsset,
                     fit: BoxFit.cover,
+                    
                   ),
                 ),
               ],
             ),
           ),
+          SizedBox(height: 10.h,),
           Flexible(
             child: Container(
-              margin: EdgeInsets.only(top: 0, left: 15, right: 15, bottom: 20),
-              height: size.height / 2,
+              margin: EdgeInsets.only(
+                  top: 0.h, left: 15.w, right: 15.w, bottom: 20.h),
+              height: size.height,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
@@ -68,7 +72,7 @@ class DetailsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    height: size.height * 0.1 - 50,
+                    height: size.height * 0.1 - 50.h,
                     width: size.height,
                     child: Stack(
                       overflow: Overflow
@@ -76,13 +80,13 @@ class DetailsScreen extends StatelessWidget {
                       // alignment: Alignment.topRight,
                       children: [
                         Positioned(
-                          bottom: 10,
+                          bottom: 3,
                           right: 40,
                           child: IconButton(
                             icon: Icon(
                               Icons.bookmark,
                               color: Colors.blue[900],
-                              size: 65,
+                              size: 50.sp,
                             ),
                             onPressed: () {
                               // Navigation Here
@@ -93,7 +97,7 @@ class DetailsScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: size.height * 0.1,
+                    height: size.height * 0.1.h,
                     padding: EdgeInsets.symmetric(horizontal: 30),
                     // margin: EdgeInsets.only(top: 10),
                     child: Row(
@@ -106,14 +110,17 @@ class DetailsScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                 border: Border(
                                   bottom: BorderSide(
-                                      width: 2, style: BorderStyle.solid),
+                                    width: 2.w,
+                                    style: BorderStyle.solid,
+                                  ),
                                 ),
                               ),
-                              padding: EdgeInsets.only(bottom: 10),
+                              padding: EdgeInsets.only(bottom: 10.h),
                               child: Text(
                                 destination.name,
                                 style: TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.w500),
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.w500),
                               ),
                             ),
                           ],
@@ -125,7 +132,8 @@ class DetailsScreen extends StatelessWidget {
                               Text(
                                 destination.harga,
                                 style: TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.w500),
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w500),
                               ),
                               SizedBox(
                                 height: 5,
@@ -146,20 +154,20 @@ class DetailsScreen extends StatelessWidget {
                   SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: Container(
-                      height: size.height * 0.2 - 10,
+                      height: size.height * 0.2 - 10.h,
                       // color: Colors.blue,
-                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      padding: EdgeInsets.symmetric(horizontal: 30.w),
                       child: Text(
                         destination.largeText,
                         style: GoogleFonts.poppins(
-                          fontSize: 15,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.normal,
                         ),
                         textAlign: TextAlign.center,
                       ),
                     ),
                   ),
-                  Container(
+                                    Container(
                     height: size.height * 0.1 - 10,
                     // margin: EdgeInsetsDirectional.only(top: 10),
                     width: double.infinity,
@@ -203,11 +211,12 @@ class DetailsScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
+          
         ],
       ),
     );

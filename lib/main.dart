@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sound_store/constants.dart';
 import 'package:sound_store/screen/logo_center.dart';
 
@@ -14,19 +15,20 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Sound Store',
-      theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: kBackgroundColor,
+    return ScreenUtilInit(
+      builder: () => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Sound Store',
+        theme: ThemeData(
+          primaryColor: kPrimaryColor,
+          textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          scaffoldBackgroundColor: kBackgroundColor,
+        ),
+        home: LogoCenter(),
+        // home: DetailsCustome(),
       ),
-      home: LogoCenter(),
+      designSize: const Size(360, 640),
     );
   }
-
 }
-
-

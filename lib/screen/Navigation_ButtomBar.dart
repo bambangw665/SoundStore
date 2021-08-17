@@ -34,31 +34,29 @@ class _NavigationButtomBarState extends State<NavigationButtomBar> {
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.home),
             label: '',
-            
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             // title: Text('Search'),
             label: '',
-            
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.save),
             // title: Text('Save'),
             label: '',
-            
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             // title: Text('User'),
             label: '',
-            
           ),
         ],
         onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          setState(
+            () {
+              _currentIndex = index;
+            },
+          );
         },
       ),
     );

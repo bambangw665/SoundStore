@@ -28,6 +28,7 @@ dependencies:
   font_awesome_flutter: ^8.10.0
   google_fonts: ^1.1.1
   marquee: null
+  flutter_screenutil: 
   
 
 dev_dependencies:
