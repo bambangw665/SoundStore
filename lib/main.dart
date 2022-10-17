@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sound_store/constants.dart';
-import 'package:sound_store/screen/logo_center.dart';
+
+import 'constants.dart';
+import 'package:soundstore2/screen/logo_center.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 
@@ -16,19 +20,22 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      builder: () => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Sound Store',
-        theme: ThemeData(
-          primaryColor: kPrimaryColor,
-          textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          scaffoldBackgroundColor: kBackgroundColor,
-        ),
-        home: LogoCenter(),
-        // home: DetailsCustome(),
-      ),
-      designSize: const Size(360, 640),
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Sound Store Apps',
+          theme: ThemeData(
+            primaryColor: kPrimaryColor,
+            primarySwatch: Colors.blue,
+            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+          ),
+          home: child,
+        );
+      },
+      child: LogoCenter(),
     );
   }
 }

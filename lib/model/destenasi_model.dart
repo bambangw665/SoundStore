@@ -1,11 +1,9 @@
-
 class DestinasiModel {
-  String name;
-  String harga;
-  int starRating;
-  String largeText;
-  String imageAsset;
-
+  String? name;
+  String? harga;
+  int? starRating;
+  String? largeText;
+  String? imageAsset;
 
   DestinasiModel({
     this.name,
@@ -15,7 +13,3 @@ class DestinasiModel {
     this.imageAsset,
   });
 }
-
-
-
-

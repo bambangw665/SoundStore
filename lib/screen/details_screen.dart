@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:sound_store/model/destenasi_model.dart';
-import 'package:sound_store/widgets/star_rating_display_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../model/destenasi_model.dart';
+import '../widgets/star_rating_display_widget.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String attchmentIcons = 'assets/svg/details_icons.svg';
-  final DestinasiModel destination;
+  final DestinasiModel? destination;
   DetailsScreen({this.destination});
 
   @override
@@ -34,7 +35,7 @@ class DetailsScreen extends StatelessWidget {
             icon: Icon(
               Icons.notifications_none,
               color: Colors.white,
-              size: 30.sp,
+              size: 20.sp,
             ),
             onPressed: null,
           )
@@ -51,15 +52,16 @@ class DetailsScreen extends StatelessWidget {
               children: [
                 Positioned(
                   child: Image.asset(
-                    destination.imageAsset,
+                    destination!.imageAsset!,
                     fit: BoxFit.cover,
-                    
                   ),
                 ),
               ],
             ),
           ),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           Flexible(
             child: Container(
               margin: EdgeInsets.only(
@@ -117,7 +119,7 @@ class DetailsScreen extends StatelessWidget {
                               ),
                               padding: EdgeInsets.only(bottom: 10.h),
                               child: Text(
-                                destination.name,
+                                destination!.name!,
                                 style: TextStyle(
                                     fontSize: 20.sp,
                                     fontWeight: FontWeight.w500),
@@ -130,7 +132,7 @@ class DetailsScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                destination.harga,
+                                destination!.harga!,
                                 style: TextStyle(
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.w500),
@@ -158,7 +160,7 @@ class DetailsScreen extends StatelessWidget {
                       // color: Colors.blue,
                       padding: EdgeInsets.symmetric(horizontal: 30.w),
                       child: Text(
-                        destination.largeText,
+                        destination!.largeText!,
                         style: GoogleFonts.poppins(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.normal,
@@ -167,7 +169,7 @@ class DetailsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                                    Container(
+                  Container(
                     height: size.height * 0.1 - 10,
                     // margin: EdgeInsetsDirectional.only(top: 10),
                     width: double.infinity,
@@ -216,7 +218,6 @@ class DetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          
         ],
       ),
     );

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sound_store/screen/homePage.dart';
-import 'package:sound_store/screen/search_screen.dart';
-import 'package:sound_store/screen/user_screen.dart';
-import 'package:sound_store/screen/wishList_secreen.dart';
+import 'package:soundstore2/screen/search_screen.dart';
+import 'package:soundstore2/screen/user_screen.dart';
+import 'package:soundstore2/screen/wistList_secreen.dart';
+
+import 'homePage.dart';
 
 class NavigationButtomBar extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _NavigationButtomBarState extends State<NavigationButtomBar> {
   final List<Widget> tabs = <Widget>[
     HomePage(),
     SearchScreen(),
-    WishListScreen(),
+    WistListScreen(),
     UserScreen(),
   ];
 

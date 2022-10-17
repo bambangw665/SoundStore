@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class StarRatingDisplay extends StatelessWidget {
   const StarRatingDisplay({
-    Key key,
-    this.value,
+    Key? key,
+    required this.value,
   }) : super(key: key);
 
   final int value;

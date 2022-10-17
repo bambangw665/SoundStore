@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sound_store/model/destenasi_model.dart';
-import 'package:sound_store/screen/details_screen.dart';
-import 'package:sound_store/widgets/big_title_widget.dart';
-import 'package:sound_store/widgets/star_rating_display_widget.dart';
+
+import '../model/destenasi_model.dart';
+import '../widgets/big_title_widget.dart';
+import '../widgets/star_rating_display_widget.dart';
+import 'details_screen.dart';
 
 // import 'widgets/costume_appbar_widget.dart';
 
@@ -26,6 +27,9 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.transparent,
         // backgroundColor: Colors.blue,
         shadowColor: Colors.transparent,
+        bottomOpacity: 0.0,
+        elevation: 0.0,
+
         leading: IconButton(
           icon: Icon(
             Icons.border_all,
@@ -55,7 +59,9 @@ class _HomePageState extends State<HomePage> {
                 height: 60,
               ),
               BigTitle(
-                  firstTitle: 'Discover Your', secondTitle: 'Perfect Sound'),
+                firstTitle: 'Discover Your',
+                secondTitle: 'Perfect Sound',
+              ),
               SizedBox(
                 height: 50,
               ),
@@ -87,10 +93,10 @@ class _HomePageState extends State<HomePage> {
                 height: 30,
               ),
               Container(
-                // color: Colors.blue,
                 margin: EdgeInsets.only(left: 15),
                 height: 300,
                 child: ListView(
+                  shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   children: destinasiModels.map((destinations) {
                     return FlatButton(
@@ -111,14 +117,14 @@ class _HomePageState extends State<HomePage> {
                                   borderRadius: BorderRadius.circular(20),
                                   boxShadow: <BoxShadow>[
                                     BoxShadow(
-                                      color: Colors.grey[400].withOpacity(0.8),
+                                      color: Colors.grey[400]!.withOpacity(0.8),
                                       blurRadius: 8,
                                       offset: Offset(0, 5),
                                     ),
                                   ],
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: AssetImage(destinations.imageAsset),
+                                    image: AssetImage(destinations.imageAsset!),
                                   ),
                                 ),
                                 child: Container(
@@ -146,8 +152,8 @@ class _HomePageState extends State<HomePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                destinations.name,
-                                                style: TextStyle(fontSize: 15),
+                                                destinations.name!,
+                                                style: TextStyle(fontSize: 13),
                                               ),
                                               SizedBox(
                                                 height: 5,
@@ -164,10 +170,10 @@ class _HomePageState extends State<HomePage> {
                                                     ),
                                                     child: StarRatingDisplay(
                                                         value: destinations
-                                                            .starRating),
+                                                            .starRating!),
                                                   ),
                                                   Text(
-                                                    destinations.harga,
+                                                    destinations.harga!,
                                                     style: TextStyle(
                                                         fontSize: 12,
                                                         color: Colors.green),

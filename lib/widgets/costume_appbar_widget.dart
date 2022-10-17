@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class CostumeAppbar extends StatelessWidget {
   const CostumeAppbar({
-    Key key,
-    this.leftIcon,
-    this.rightIcon,
-    this.linkLeft,
-    this.linkRight,
+    Key? key,
+    required this.leftIcon,
+    required this.rightIcon,
+    required this.linkLeft,
+    required this.linkRight,
   }) : super(key: key);
 
   final IconData rightIcon;

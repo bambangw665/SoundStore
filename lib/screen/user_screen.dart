@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sound_store/constants.dart';
+import 'package:soundstore2/constants.dart';
 
 class UserScreen extends StatefulWidget {
   // const UserScreen({ Key? key }) : super(key: key);
@@ -156,9 +156,9 @@ class _UserScreenState extends State<UserScreen> {
 
 class ListRowUser extends StatelessWidget {
   const ListRowUser({
-    Key key,
-    @required this.iconUser,
-    @required this.nameUser,
+    Key? key,
+    required this.iconUser,
+    required this.nameUser,
   }) : super(key: key);
 
   final String iconUser;
@@ -185,7 +185,7 @@ class ListRowUser extends StatelessWidget {
                 border: Border(
               bottom: BorderSide(
                 width: 1.0,
-                color: Colors.grey[200],
+                color: Colors.grey[200]!,
               ),
             )),
             child: Text(
@@ -209,6 +209,3 @@ class ListRowUser extends StatelessWidget {
     );
   }
 }
-
-
-
