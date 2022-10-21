@@ -23,6 +23,8 @@ class _WistListScreenState extends State<WistListScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
+        elevation: 0.0,
+        bottomOpacity: 0.0,
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
@@ -38,153 +40,140 @@ class _WistListScreenState extends State<WistListScreen> {
                 Icons.notifications_none,
                 color: Colors.black,
               ),
-              onPressed: null)
+              onPressed: () {})
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-                margin: EdgeInsets.only(left: 5),
-                child: BigTitle(firstTitle: 'Your', secondTitle: 'Wish List')),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 20,
-              margin: EdgeInsets.symmetric(vertical: 20),
-              child: Container(
-                margin: EdgeInsets.only(left: 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      icon: Icon(FontAwesomeIcons.thLarge),
-                      onPressed: null,
-                    ),
-                    IconButton(
-                      icon: Icon(FontAwesomeIcons.list),
-                      onPressed: null,
-                    )
-                  ],
-                ),
+      body: Column(
+        children: [
+          Container(
+              margin: EdgeInsets.only(left: 5),
+              child: BigTitle(firstTitle: 'Your', secondTitle: 'Wist List')),
+          // SizedBox(
+          //   height: 10,
+          // ),
+          Container(
+            height: 10,
+            margin: EdgeInsets.symmetric(vertical: 20),
+            child: Container(
+              margin: EdgeInsets.only(left: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  IconButton(
+                    icon: Icon(FontAwesomeIcons.thLarge),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: Icon(FontAwesomeIcons.list),
+                    onPressed: () {},
+                  )
+                ],
               ),
             ),
-            SizedBox(
-              height: 40,
-            ),
-            Container(
-              height: size.height / 2,
-              margin: EdgeInsets.all(5),
-              // color: Colors.blue,
-              child: GridView(
-                padding: EdgeInsets.only(bottom: 10),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1 / 1,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                ),
-                children: destinasiModels.map((destinations) {
-                  return FlatButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return DetailsScreen(
-                            destination: destinations,
-                          );
-                        }));
-                      },
-                      child: Column(
-                        children: [
-                          Expanded(
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          Container(
+            height: size.height / 2,
+            margin: EdgeInsets.all(5),
+            child: GridView(
+              padding: EdgeInsets.only(bottom: 10),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 1 / 1,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+              ),
+              children: destinasiModels.map((destinations) {
+                return FlatButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return DetailsScreen(
+                          destination: destinations,
+                        );
+                      }));
+                    },
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            width: 200,
+                            decoration: BoxDecoration(
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                  color: Colors.grey[400]!.withOpacity(0.8),
+                                  blurRadius: 8,
+                                  offset: Offset(0, 5),
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(destinations.imageAsset!)),
+                            ),
                             child: Container(
-                              width: 200,
-                              decoration: BoxDecoration(
-                                boxShadow: <BoxShadow>[
-                                  BoxShadow(
-                                    color: Colors.grey[400]!.withOpacity(0.8),
-                                    blurRadius: 8,
-                                    offset: Offset(0, 5),
-                                  ),
-                                ],
-                                borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image:
-                                        AssetImage(destinations.imageAsset!)),
-                              ),
-                              child: Container(
-                                // color: Colors.blue,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Flexible(
-                                      child: Container(
-                                        height: 50,
-                                        padding: EdgeInsets.only(
-                                            left: 10, right: 10, top: 5),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(10),
-                                            bottomRight: Radius.circular(10),
-                                          ),
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              destinations.name!,
-                                              style: TextStyle(fontSize: 15),
-                                            ),
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                IconTheme(
-                                                  data: IconThemeData(
-                                                    color: Colors.amber,
-                                                    size: 13,
-                                                  ),
-                                                  child: StarRatingDisplay(
-                                                      value: destinations
-                                                          .starRating!),
-                                                ),
-                                                Text(
-                                                  destinations.harga!,
-                                                  style: TextStyle(
-                                                      fontSize: 10,
-                                                      color: Colors.green),
-                                                )
-                                              ],
-                                            ),
-                                          ],
+                              // color: Colors.blue,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Flexible(
+                                    child: Container(
+                                      height: 50,
+                                      width: size.width,
+                                      padding: EdgeInsets.only(
+                                          left: 10, right: 10, top: 5),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(10),
+                                          bottomRight: Radius.circular(10),
                                         ),
                                       ),
-                                    )
-                                  ],
-                                ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            destinations.name!,
+                                            style: TextStyle(fontSize: 12),
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            destinations.harga!,
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.green),
+                                          ),
+                                          IconTheme(
+                                            data: IconThemeData(
+                                              color: Colors.amber,
+                                              size: 13,
+                                            ),
+                                            child: StarRatingDisplay(
+                                                value:
+                                                    destinations.starRating!),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                          )
-                        ],
-                      ));
-                }).toList(),
-              ),
-            )
-          ],
-        ),
+                          ),
+                        )
+                      ],
+                    ));
+              }).toList(),
+            ),
+          )
+        ],
       ),
     );
   }

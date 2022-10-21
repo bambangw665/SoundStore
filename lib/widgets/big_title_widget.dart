@@ -24,9 +24,12 @@ class BigTitle extends StatelessWidget {
             firstTitle,
             style: TextStyle(fontSize: 35),
           ),
-          Text(
-            secondTitle,
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+          Padding(
+            padding: EdgeInsets.only(left: 10),
+            child: Text(
+              secondTitle,
+              style: TextStyle(fontSize: 35, fontWeight: FontWeight.w800),
+            ),
           ),
         ],
       ),

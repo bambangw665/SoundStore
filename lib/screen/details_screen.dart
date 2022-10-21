@@ -19,6 +19,7 @@ class DetailsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
+        elevation: 0.0,
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
@@ -37,7 +38,7 @@ class DetailsScreen extends StatelessWidget {
               color: Colors.white,
               size: 20.sp,
             ),
-            onPressed: null,
+            onPressed: () {},
           )
         ],
       ),
@@ -137,9 +138,9 @@ class DetailsScreen extends StatelessWidget {
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.w500),
                               ),
-                              SizedBox(
-                                height: 5,
-                              ),
+                              // SizedBox(
+                              //   height: 5,
+                              // ),
                               IconTheme(
                                 data: IconThemeData(
                                   color: Colors.amber,
@@ -156,7 +157,7 @@ class DetailsScreen extends StatelessWidget {
                   SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: Container(
-                      height: size.height * 0.2 - 10.h,
+                      height: size.height * 0.2 - 5.h,
                       // color: Colors.blue,
                       padding: EdgeInsets.symmetric(horizontal: 30.w),
                       child: Text(

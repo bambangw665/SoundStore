@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/sound_store.iml" filepath="$PROJECT_DIR$/.idea/sound_store.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/sound_store_android.iml" filepath="$PROJECT_DIR$/android/sound_store_android.iml" />
     </modules>
   </component>
 </project>
