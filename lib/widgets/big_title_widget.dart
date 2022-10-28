@@ -13,11 +13,10 @@ class BigTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 110,
       width: double.infinity,
       margin: EdgeInsets.only(left: 20),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(

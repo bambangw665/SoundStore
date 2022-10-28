@@ -6,7 +6,15 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+      ),
+      body: SafeArea(
+        child: ListView(
+          children: [],
+        ),
+      ),
     );
   }
 }

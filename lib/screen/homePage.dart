@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                 secondTitle: 'Perfect Sound',
               ),
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Container(
                 height: 50,

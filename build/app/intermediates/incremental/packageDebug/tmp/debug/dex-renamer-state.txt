@@ -1,4 +1,0 @@
-#Fri Oct 21 15:01:07 WIB 2022
-base.0=/Users/bambangw/Desktop/SoundStore/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
