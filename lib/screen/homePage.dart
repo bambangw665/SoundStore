@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                                                   IconTheme(
                                                     data: IconThemeData(
                                                       color: Colors.amber,
-                                                      size: 13,
+                                                      size: 10,
                                                     ),
                                                     child: StarRatingDisplay(
                                                         value: destinations

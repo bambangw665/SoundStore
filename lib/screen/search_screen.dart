@@ -49,7 +49,7 @@ class _SearchScreenState extends State<SearchScreen> {
               height: 10,
             ),
             Container(
-              height: 64,
+              height: 70,
               width: double.infinity,
               margin: EdgeInsets.only(left: 20),
               child: Column(
@@ -166,7 +166,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                               style: TextStyle(fontSize: 12),
                                             ),
                                             SizedBox(
-                                              height: 5,
+                                              height: 3,
                                             ),
                                             Text(
                                               destinations.harga!,
@@ -174,10 +174,13 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   fontSize: 10,
                                                   color: Colors.green),
                                             ),
+                                            SizedBox(
+                                              height: 3,
+                                            ),
                                             IconTheme(
                                               data: IconThemeData(
                                                 color: Colors.amber,
-                                                size: 13,
+                                                size: 10,
                                               ),
                                               child: StarRatingDisplay(
                                                   value:

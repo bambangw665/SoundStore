@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:soundstore2/constants.dart';
 import 'package:soundstore2/screen/homePage.dart';
+import 'package:soundstore2/screen/payement_screen.dart';
 
 import '../model/destenasi_model.dart';
 import '../widgets/star_rating_display_widget.dart';
@@ -155,10 +156,10 @@ class _CartScreenState extends State<CartScreen> {
               ),
               child: TextButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => PayementScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PayementScreen()));
                 },
                 child: Text(
                   "CONFIRM PAYMENT",
