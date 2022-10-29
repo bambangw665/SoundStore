@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:soundstore2/constants.dart';
-import 'package:soundstore2/screen/homePage.dart';
-import 'package:soundstore2/screen/payement_screen.dart';
 
+import '../Pages/payement_screen.dart';
+import '../constants.dart';
 import '../model/destenasi_model.dart';
 import '../widgets/star_rating_display_widget.dart';
 
@@ -33,19 +32,17 @@ class _CartScreenState extends State<CartScreen> {
               Navigator.pop(context);
             },
           ),
-          title: Center(
-            child: Text(
-              "Chart",
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: kTextColor,
-              ),
+          title: Text(
+            "Chart",
+            style: GoogleFonts.poppins(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: kTextColor,
             ),
           ),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Container(
               height: 0.7.sh,

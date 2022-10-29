@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:soundstore2/constants.dart';
-import 'package:soundstore2/widgets/appbtn_widget.dart';
+import '../constants.dart';
+import '../widgets/appbtn_widget.dart';
+
+import 'complete_payment.dart';
 
 class PayementScreen extends StatefulWidget {
   const PayementScreen({Key? key}) : super(key: key);
@@ -39,12 +41,10 @@ class _PayementScreenState extends State<PayementScreen> {
             Navigator.pop(context);
           },
         ),
-        title: Center(
-          child: Text(
-            "Payment",
-            style: GoogleFonts.poppins(
-              color: kTextColor,
-            ),
+        title: Text(
+          "Payment",
+          style: GoogleFonts.poppins(
+            color: kTextColor,
           ),
         ),
       ),
@@ -66,7 +66,7 @@ class _PayementScreenState extends State<PayementScreen> {
               ),
             ),
             SizedBox(
-              height: 0.2.sh,
+              height: 0.2.sh - 20,
             ),
             btnConfirmPayment(size, context)
           ],
@@ -88,7 +88,10 @@ class _PayementScreenState extends State<PayementScreen> {
         onPressed: () {
           // Navigator.push(context,
           //     MaterialPageRoute(builder: (context) => PayementScreen()));
-          // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => ), (Route<dynamic> route) => false );
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => CompletePaymentScreen()),
+              (Route<dynamic> route) => false);
         },
         child: Text(
           "CONFIRM PAYMENT",

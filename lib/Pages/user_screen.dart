@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:soundstore2/constants.dart';
+import '../constants.dart';
 
 class UserScreen extends StatefulWidget {
   // const UserScreen({ Key? key }) : super(key: key);

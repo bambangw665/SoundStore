@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:soundstore2/constants.dart';
-import 'package:soundstore2/screen/cart_screen.dart';
-import 'package:soundstore2/screen/search_screen.dart';
-import 'package:soundstore2/screen/user_screen.dart';
-import 'package:soundstore2/screen/wistList_secreen.dart';
+import '../constants.dart';
+import '../Pages/cart_screen.dart';
+import '../Pages/search_screen.dart';
+import '../Pages/user_screen.dart';
+import '../Pages/wistList_secreen.dart';
 
 import 'homePage.dart';
 
@@ -104,7 +104,7 @@ class _NavigationButtomBarState extends State<NavigationButtomBar> {
               ),
               activeIcon: SvgPicture.asset(
                 iconsItem[4],
-                width: 20,
+                width: 18,
                 color: Colors.white,
               ),
               label: "",

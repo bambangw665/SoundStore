@@ -1,9 +1,9 @@
 // import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:soundstore2/screen/search_pageScreen.dart';
 
 import '../model/destenasi_model.dart';
+import '../Pages/search_pageScreen.dart';
 import '../widgets/big_title_widget.dart';
 import '../widgets/star_rating_display_widget.dart';
 import 'details_screen.dart';
