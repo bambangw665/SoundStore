@@ -72,26 +72,35 @@ class _SearchScreenState extends State<SearchScreen> {
             SizedBox(
               height: 20,
             ),
-            Container(
-              margin: EdgeInsets.only(right: 20),
-              height: 50,
-              width: size.width * 0.8,
-              child: TextField(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SearchPage()));
-                },
-                decoration: InputDecoration(
-                    hintText: 'Search Here....',
-                    hintStyle: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                        color: Colors.grey),
-                    suffixIcon: Icon(
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => SearchPage()));
+              },
+              child: Container(
+                margin: EdgeInsets.only(right: 20),
+                height: 50,
+                width: size.width * 0.8,
+                decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                    color: Colors.grey,
+                    width: 1.0,
+                  )),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Search Here..",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Icon(
                       Icons.search,
                       color: Colors.grey,
-                      size: 30,
-                    )),
+                    )
+                  ],
+                ),
               ),
             ),
             SizedBox(

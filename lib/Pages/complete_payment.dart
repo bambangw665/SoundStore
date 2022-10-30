@@ -24,7 +24,7 @@ class _CompletePaymentScreenState extends State<CompletePaymentScreen> {
   }
 
   StarProgrss() async {
-    var duration = const Duration(seconds: 3);
+    var duration = const Duration(seconds: 4);
     return Timer(duration, () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
         return CompliteOrder();
