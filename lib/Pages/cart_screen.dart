@@ -50,7 +50,7 @@ class _CartScreenState extends State<CartScreen> {
               child: ListView(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
-                  children: destinasiModels.map((destinations) {
+                  children: HomeModelHeadset.map((chartModel) {
                     return Center(
                       child: TextButton(
                           onPressed: () {},
@@ -73,8 +73,7 @@ class _CartScreenState extends State<CartScreen> {
                                       ),
                                     ],
                                     image: DecorationImage(
-                                      image:
-                                          AssetImage(destinations.imageAsset!),
+                                      image: AssetImage(chartModel.imageAsset!),
                                       fit: BoxFit.cover,
                                     )),
                                 child: Container(
@@ -102,7 +101,7 @@ class _CartScreenState extends State<CartScreen> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                destinations.name!,
+                                                chartModel.name!,
                                                 style: TextStyle(fontSize: 13),
                                               ),
                                               SizedBox(
@@ -119,11 +118,11 @@ class _CartScreenState extends State<CartScreen> {
                                                       size: 13,
                                                     ),
                                                     child: StarRatingDisplay(
-                                                        value: destinations
+                                                        value: chartModel
                                                             .starRating!),
                                                   ),
                                                   Text(
-                                                    destinations.harga!,
+                                                    chartModel.harga!,
                                                     style: TextStyle(
                                                         fontSize: 12,
                                                         color: Colors.green),
@@ -171,30 +170,3 @@ class _CartScreenState extends State<CartScreen> {
         ));
   }
 }
-
-var destinasiModels = [
-  DestinasiModel(
-    name: 'Airpods',
-    harga: 'Rp 2.000.000',
-    starRating: 5,
-    largeText:
-        'AirPods menghadirkan pengalaman mendengarkan yang tak tertandingi di seluruh perangkat Anda. Setiap model terhubung dengan mudah dan dilengkapi suara yang kaya dan berkualitas tinggi dalam desain nirkabel yang inovatif dnkasdnlasndlasdnladnladnlsa daosndladnasld dioasndlasdnla dnasdkasnkn dadnaosdnas doasndoasn.',
-    imageAsset: 'assets/images/earphone1.png',
-  ),
-  DestinasiModel(
-    name: 'Airpods pro',
-    harga: 'Rp 4.000.000',
-    starRating: 5,
-    largeText:
-        'AirPods Pro adalah satu-satunyaheadphone in-ear denganPeredam Kebisingan Aktif yang terus beradaptasi dengan telinga Anda dan pas dikenakan — mencegah suara luar agar Anda dapat fokus pada apa yang sedang Anda dengarkan.',
-    imageAsset: 'assets/images/earphone2.png',
-  ),
-  DestinasiModel(
-    name: 'Airpods Max',
-    harga: 'Rp 10.000.000',
-    starRating: 5,
-    largeText:
-        'Memperkenalkan AirPods Max — keseimbangan sempurna dari audio high-fidelity yang mempesona dan kemudahan dari AirPods. Pengalaman mendengar terbaik yang begitu personal hadir di sini..',
-    imageAsset: 'assets/images/headphone3.png',
-  ),
-];

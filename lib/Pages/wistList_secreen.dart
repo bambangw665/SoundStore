@@ -85,13 +85,13 @@ class _WistListScreenState extends State<WistListScreen> {
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
               ),
-              children: destinasiModels.map((destinations) {
+              children: WistListModel.map((destinations) {
                 return FlatButton(
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
                         return DetailsScreen(
-                          destination: destinations,
+                          phoneModel: destinations,
                         );
                       }));
                     },
@@ -178,54 +178,3 @@ class _WistListScreenState extends State<WistListScreen> {
     );
   }
 }
-
-var destinasiModels = [
-  DestinasiModel(
-    name: 'Airpods 1',
-    harga: 'Rp 2.000.000',
-    starRating: 5,
-    largeText:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    imageAsset: 'assets/images/headphone1.png',
-  ),
-  DestinasiModel(
-    name: 'Airpods 2',
-    harga: 'Rp 4.000.000',
-    starRating: 5,
-    largeText:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    imageAsset: 'assets/images/headphone2.png',
-  ),
-  DestinasiModel(
-    name: 'Airpods 3',
-    harga: 'Rp 10.000.000',
-    starRating: 5,
-    largeText:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    imageAsset: 'assets/images/headphone3.png',
-  ),
-  DestinasiModel(
-    name: 'Airpods 4',
-    harga: 'Rp 3.000.000',
-    starRating: 5,
-    largeText:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    imageAsset: 'assets/images/headphone4.png',
-  ),
-  DestinasiModel(
-    name: 'Airpods 5',
-    harga: 'Rp 2.000.000',
-    starRating: 5,
-    largeText:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    imageAsset: 'assets/images/earphone1.png',
-  ),
-  DestinasiModel(
-    name: 'Airpods 6',
-    harga: 'Rp 1.000.000',
-    starRating: 5,
-    largeText:
-        'Memperkenalkan AirPods Max — keseimbangan sempurna dari audio high-fidelity yang mempesona dan kemudahan dari AirPods. Pengalaman mendengar terbaik yang begitu personal hadir di sini..',
-    imageAsset: 'assets/images/earphone2.png',
-  ),
-];

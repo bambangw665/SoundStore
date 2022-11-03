@@ -7,8 +7,9 @@ import '../widgets/star_rating_display_widget.dart';
 
 class DetailsScreen extends StatelessWidget {
   final String attchmentIcons = 'assets/svg/details_icons.svg';
-  final DestinasiModel? destination;
-  DetailsScreen({this.destination});
+  final PhoneModel? phoneModel;
+  // DetailsScreen({this.destination});
+  DetailsScreen({this.phoneModel});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class DetailsScreen extends StatelessWidget {
               children: [
                 Positioned(
                   child: Image.asset(
-                    destination!.imageAsset!,
+                    phoneModel!.imageAsset!,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -120,7 +121,7 @@ class DetailsScreen extends StatelessWidget {
                               ),
                               padding: EdgeInsets.only(bottom: 10.h),
                               child: Text(
-                                destination!.name!,
+                                phoneModel!.name!,
                                 style: TextStyle(
                                     fontSize: 20.sp,
                                     fontWeight: FontWeight.w500),
@@ -133,7 +134,7 @@ class DetailsScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                destination!.harga!,
+                                phoneModel!.harga!,
                                 style: TextStyle(
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.w500),
@@ -161,7 +162,7 @@ class DetailsScreen extends StatelessWidget {
                       // color: Colors.blue,
                       padding: EdgeInsets.symmetric(horizontal: 30.w),
                       child: Text(
-                        destination!.largeText!,
+                        phoneModel!.largeText!,
                         style: GoogleFonts.poppins(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.normal,

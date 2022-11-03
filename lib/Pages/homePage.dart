@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../model/destenasi_model.dart';
 import '../widgets/big_title_widget.dart';
+import '../widgets/listHeadphone_product._widgetdart.dart';
 import '../widgets/star_rating_display_widget.dart';
 import 'details_screen.dart';
 
@@ -12,13 +14,15 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  // final List<String> listGambar = [
-  //   'assets/images/earphone1.png',
-  //   'assets/images/earphone2.png',
-  //   'assets/images/headphone3.png',
-  //   'assets/images/headphone3.png',
-  // ];
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  TabController? _tabController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = new TabController(length: 3, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,132 +70,56 @@ class _HomePageState extends State<HomePage> {
                 height: 20,
               ),
               Container(
-                height: 50,
-                width: double.infinity,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Text(
-                      'Earphone',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                  height: 50,
+                  width: double.infinity,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: TabBar(
+                      controller: _tabController,
+                      indicator: UnderlineTabIndicator(
+                          borderSide: BorderSide(width: 3.0),
+                          insets: EdgeInsets.symmetric(horizontal: 40.0)),
+                      indicatorColor: Colors.blue,
+                      unselectedLabelColor: Colors.grey,
+                      labelPadding: const EdgeInsets.only(left: 30, right: 25),
+                      isScrollable: true,
+                      tabs: [
+                        Tab(
+                          child: Text(
+                            "Earphone",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                        Tab(
+                          child: Text("Headset",
+                              style: TextStyle(color: Colors.black)),
+                        ),
+                        Tab(
+                          child: Text("SoundBar",
+                              style: TextStyle(color: Colors.black)),
+                        ),
+                      ],
                     ),
-                    Text(
-                      'Headset',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'Headphone',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-              ),
+                  )),
               SizedBox(
                 height: 30,
               ),
               Container(
                 margin: EdgeInsets.only(left: 15),
-                height: 300,
-                child: ListView(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  children: destinasiModels.map((destinations) {
-                    return FlatButton(
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return DetailsScreen(destination: destinations);
-                          }));
-                        },
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                width: 180,
-                                height: 200,
-                                margin: EdgeInsets.only(bottom: 50, top: 20),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  boxShadow: <BoxShadow>[
-                                    BoxShadow(
-                                      color: Colors.grey[400]!.withOpacity(0.8),
-                                      blurRadius: 8,
-                                      offset: Offset(0, 5),
-                                    ),
-                                  ],
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(destinations.imageAsset!),
-                                  ),
-                                ),
-                                child: Container(
-                                  // color: Colors.blue,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Flexible(
-                                        child: Container(
-                                          height: 50,
-                                          // width: 180,
-                                          padding: EdgeInsets.only(
-                                              left: 10, right: 10, top: 5),
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                destinations.name!,
-                                                style: TextStyle(fontSize: 13),
-                                              ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  IconTheme(
-                                                    data: IconThemeData(
-                                                      color: Colors.amber,
-                                                      size: 10,
-                                                    ),
-                                                    child: StarRatingDisplay(
-                                                        value: destinations
-                                                            .starRating!),
-                                                  ),
-                                                  Text(
-                                                    destinations.harga!,
-                                                    style: TextStyle(
-                                                        fontSize: 12,
-                                                        color: Colors.green),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ));
-                  }).toList(),
+                height: 300.h,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    ListProductHeadphone(
+                      modelChange: HomeModelHeadphone,
+                      directonAxis: Axis.horizontal,
+                    ),
+                    ListProductHeadphone(
+                      modelChange: HomeModelHeadset,
+                      directonAxis: Axis.horizontal,
+                    ),
+                    Text("Tabs 3")
+                  ],
                 ),
               ),
             ],
@@ -201,30 +129,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-var destinasiModels = [
-  DestinasiModel(
-    name: 'Airpods',
-    harga: 'Rp 2.000.000',
-    starRating: 5,
-    largeText:
-        'AirPods menghadirkan pengalaman mendengarkan yang tak tertandingi di seluruh perangkat Anda. Setiap model terhubung dengan mudah dan dilengkapi suara yang kaya dan berkualitas tinggi dalam desain nirkabel yang inovatif dnkasdnlasndlasdnladnladnlsa daosndladnasld dioasndlasdnla dnasdkasnkn dadnaosdnas doasndoasn.',
-    imageAsset: 'assets/images/earphone1.png',
-  ),
-  DestinasiModel(
-    name: 'Airpods pro',
-    harga: 'Rp 4.000.000',
-    starRating: 5,
-    largeText:
-        'AirPods Pro adalah satu-satunyaheadphone in-ear denganPeredam Kebisingan Aktif yang terus beradaptasi dengan telinga Anda dan pas dikenakan — mencegah suara luar agar Anda dapat fokus pada apa yang sedang Anda dengarkan.',
-    imageAsset: 'assets/images/earphone2.png',
-  ),
-  DestinasiModel(
-    name: 'Airpods Max',
-    harga: 'Rp 10.000.000',
-    starRating: 5,
-    largeText:
-        'Memperkenalkan AirPods Max — keseimbangan sempurna dari audio high-fidelity yang mempesona dan kemudahan dari AirPods. Pengalaman mendengar terbaik yang begitu personal hadir di sini..',
-    imageAsset: 'assets/images/headphone3.png',
-  ),
-];
