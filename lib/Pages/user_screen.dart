@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../constants.dart';
 
-class UserScreen extends StatefulWidget {
-  // const UserScreen({ Key? key }) : super(key: key);
+class UserScreen extends StatelessWidget {
+  const UserScreen({Key? key}) : super(key: key);
 
-  @override
-  _UserScreenState createState() => _UserScreenState();
-}
-
-class _UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -21,7 +16,9 @@ class _UserScreenState extends State<UserScreen> {
         elevation: 0.0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, "/BottomNavBar");
+          },
         ),
       ),
       body: SingleChildScrollView(

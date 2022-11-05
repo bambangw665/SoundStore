@@ -1,5 +1,6 @@
 // import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../model/destenasi_model.dart';
@@ -7,14 +8,9 @@ import '../widgets/big_title_widget.dart';
 import '../widgets/star_rating_display_widget.dart';
 import 'details_screen.dart';
 
-class WistListScreen extends StatefulWidget {
-  // const WishListScreen({ Key? key }) : super(key: key);
+class WistListScreen extends StatelessWidget {
+  const WistListScreen({Key? key}) : super(key: key);
 
-  @override
-  _WistListScreenState createState() => _WistListScreenState();
-}
-
-class _WistListScreenState extends State<WistListScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -43,55 +39,62 @@ class _WistListScreenState extends State<WistListScreen> {
               onPressed: () {})
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-              margin: EdgeInsets.only(left: 5),
-              child: BigTitle(firstTitle: 'Your', secondTitle: 'Wist List')),
-          // SizedBox(
-          //   height: 10,
-          // ),
-          Container(
-            height: 10,
-            margin: EdgeInsets.symmetric(vertical: 20),
-            child: Container(
-              margin: EdgeInsets.only(left: 10),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  IconButton(
-                    icon: Icon(FontAwesomeIcons.thLarge),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Icon(FontAwesomeIcons.list),
-                    onPressed: () {},
-                  )
-                ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+                margin: EdgeInsets.only(left: 5),
+                child: BigTitle(firstTitle: 'Your', secondTitle: 'Wist List')),
+            // SizedBox(
+            //   height: 10,
+            // ),
+            Container(
+              height: 10,
+              margin: EdgeInsets.symmetric(vertical: 20),
+              child: Container(
+                margin: EdgeInsets.only(left: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      icon: Icon(FontAwesomeIcons.thLarge),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Icon(FontAwesomeIcons.list),
+                      onPressed: () {},
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Container(
-            height: size.height / 2,
-            margin: EdgeInsets.all(5),
-            child: GridView(
-              padding: EdgeInsets.only(bottom: 10),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 1 / 1,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-              ),
-              children: WistListModel.map((destinations) {
-                return FlatButton(
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              height: size.height,
+              margin: EdgeInsets.all(5),
+              child: GridView.builder(
+                padding: EdgeInsets.only(bottom: 10),
+                // physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1 / 1,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                ),
+                // children: WistListModel.map(
+                //   (destinations) {
+                itemCount: WistListModel.length,
+                itemBuilder: (context, index) {
+                  final wistListmodel = WistListModel[index];
+                  return TextButton(
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
                         return DetailsScreen(
-                          phoneModel: destinations,
+                          phoneModel: wistListmodel,
                         );
                       }));
                     },
@@ -111,7 +114,7 @@ class _WistListScreenState extends State<WistListScreen> {
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: AssetImage(destinations.imageAsset!)),
+                                  image: AssetImage(wistListmodel.imageAsset!)),
                             ),
                             child: Container(
                               // color: Colors.blue,
@@ -138,14 +141,14 @@ class _WistListScreenState extends State<WistListScreen> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            destinations.name!,
+                                            wistListmodel.name!,
                                             style: TextStyle(fontSize: 12),
                                           ),
                                           SizedBox(
                                             height: 5,
                                           ),
                                           Text(
-                                            destinations.harga!,
+                                            wistListmodel.harga!,
                                             style: TextStyle(
                                                 fontSize: 10,
                                                 color: Colors.green),
@@ -157,7 +160,7 @@ class _WistListScreenState extends State<WistListScreen> {
                                             ),
                                             child: StarRatingDisplay(
                                                 value:
-                                                    destinations.starRating!),
+                                                    wistListmodel.starRating!),
                                           ),
                                         ],
                                       ),
@@ -169,11 +172,15 @@ class _WistListScreenState extends State<WistListScreen> {
                           ),
                         )
                       ],
-                    ));
-              }).toList(),
-            ),
-          )
-        ],
+                    ),
+                  );
+                },
+                //   },
+                // ).toList(),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

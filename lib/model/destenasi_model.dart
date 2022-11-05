@@ -114,6 +114,30 @@ var SearchModel = [
         'Keseimbangan sempurna dari audio high-fidelity yang mempesona dan kemudahan dari AirPods. Pengalaman mendengar terbaik yang begitu personal hadir di sini..',
     imageAsset: 'assets/images/headphone3.png',
   ),
+  PhoneModel(
+    name: 'Sony HT-M500',
+    harga: 'Rp 5.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/sony_HT-ST5000.png',
+  ),
+  PhoneModel(
+    name: 'Samsung HT-M4',
+    harga: 'Rp 3.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/sony_HT-ST5000.png',
+  ),
+  PhoneModel(
+    name: 'JBL Bar 2.1',
+    harga: 'Rp 4.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/jbl bar 2.1.png',
+  ),
 ];
 
 var HomeModelHeadset = [
@@ -167,5 +191,32 @@ var HomeModelHeadphone = [
     largeText:
         'Keseimbangan sempurna dari audio high-fidelity yang mempesona dan kemudahan dari AirPods. Pengalaman mendengar terbaik yang begitu personal hadir di sini..',
     imageAsset: 'assets/images/headphone3.png',
+  ),
+];
+
+var HomeSoundBar = [
+  PhoneModel(
+    name: 'Sony HT-M500',
+    harga: 'Rp 5.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/sony_HT-ST5000.png',
+  ),
+  PhoneModel(
+    name: 'Samsung HT-M4',
+    harga: 'Rp 3.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/sony_HT-ST5000.png',
+  ),
+  PhoneModel(
+    name: 'JBL Bar 2.1',
+    harga: 'Rp 4.000.000',
+    starRating: 5,
+    largeText:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    imageAsset: 'assets/images/jbl bar 2.1.png',
   ),
 ];

@@ -73,7 +73,7 @@ class _SearchScreenState extends State<SearchScreen>
               height: 10,
             ),
             Container(
-              height: 70,
+              height: 70.h,
               width: double.infinity,
               margin: EdgeInsets.only(left: 20),
               child: Column(
@@ -137,7 +137,7 @@ class _SearchScreenState extends State<SearchScreen>
                   labelColor: Colors.black,
                   indicatorColor: Colors.grey,
                   unselectedLabelColor: Colors.grey,
-                  labelPadding: const EdgeInsets.only(left: 10, right: 0),
+                  labelPadding: EdgeInsets.only(left: 10, right: 0),
                   isScrollable: true,
                   indicator: UnderlineTabIndicator(
                       borderSide: BorderSide(width: 0.0),
@@ -164,7 +164,7 @@ class _SearchScreenState extends State<SearchScreen>
               height: 10.h,
             ),
             Container(
-              height: size.height / 2 + 20,
+              height: size.height,
               margin: EdgeInsets.all(5),
               child: TabBarView(
                 controller: _tabController,
@@ -199,20 +199,25 @@ class GridListProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      padding: EdgeInsets.symmetric(vertical: 10),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crosAxisCount!,
-        childAspectRatio: 1 / 1,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-      ),
-      children: SearchModel.map((searchModel) {
-        return FlatButton(
+    return GridView.builder(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        physics: NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: crosAxisCount!,
+          childAspectRatio: 1 / 1,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+        ),
+        // children: SearchModel.map(
+        //   (searchModel) {
+        itemCount: SearchModel.length,
+        itemBuilder: (context, index) {
+          final searchmodel = SearchModel[index];
+          return TextButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return DetailsScreen(
-                  phoneModel: searchModel,
+                  phoneModel: searchmodel,
                 );
               }));
             },
@@ -232,7 +237,7 @@ class GridListProduct extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage(searchModel.imageAsset!)),
+                          image: AssetImage(searchmodel.imageAsset!)),
                     ),
                     child: Container(
                       // color: Colors.blue,
@@ -257,14 +262,14 @@ class GridListProduct extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    searchModel.name!,
+                                    searchmodel.name!,
                                     style: TextStyle(fontSize: 12),
                                   ),
                                   SizedBox(
                                     height: 3,
                                   ),
                                   Text(
-                                    searchModel.harga!,
+                                    searchmodel.harga!,
                                     style: TextStyle(
                                         fontSize: 10, color: Colors.green),
                                   ),
@@ -277,7 +282,7 @@ class GridListProduct extends StatelessWidget {
                                       size: 10,
                                     ),
                                     child: StarRatingDisplay(
-                                        value: searchModel.starRating!),
+                                        value: searchmodel.starRating!),
                                   ),
                                 ],
                               ),
@@ -289,9 +294,12 @@ class GridListProduct extends StatelessWidget {
                   ),
                 )
               ],
-            ));
-      }).toList(),
-    );
+            ),
+          );
+        }
+        //   },
+        // ).toList(),
+        );
   }
 }
 
@@ -309,20 +317,26 @@ class GrindSingleProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: GridView(
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: crosAxisCount!,
-          mainAxisExtent: 100,
-          childAspectRatio: 1,
-          mainAxisSpacing: 20,
-        ),
-        children: SearchModel.map((searchModel) {
-          return FlatButton(
+      child: GridView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: crosAxisCount!,
+            mainAxisExtent: 100,
+            childAspectRatio: 1,
+            mainAxisSpacing: 20,
+          ),
+          itemCount: SearchModel.length,
+          itemBuilder: (context, index) {
+            // final searchModel = searchModel[index];
+            final searchmodel = SearchModel[index];
+            // children: SearchModel.map(
+            //   (searchModel) {
+            return TextButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return DetailsScreen(
-                    phoneModel: searchModel,
+                    phoneModel: searchmodel,
                   );
                 }));
               },
@@ -343,7 +357,7 @@ class GrindSingleProduct extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage(searchModel.imageAsset!)),
+                            image: AssetImage(searchmodel.imageAsset!)),
                       ),
                     ),
                   ),
@@ -371,7 +385,7 @@ class GrindSingleProduct extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
-                                  searchModel.name!,
+                                  searchmodel.name!,
                                   style: TextStyle(fontSize: 20),
                                 ),
                                 SizedBox(
@@ -380,7 +394,7 @@ class GrindSingleProduct extends StatelessWidget {
                                 Align(
                                   alignment: Alignment.centerRight,
                                   child: Text(
-                                    searchModel.harga!,
+                                    searchmodel.harga!,
                                     style: TextStyle(
                                         fontSize: 17, color: Colors.green),
                                   ),
@@ -394,7 +408,7 @@ class GrindSingleProduct extends StatelessWidget {
                                     size: 15,
                                   ),
                                   child: StarRatingDisplay(
-                                      value: searchModel.starRating!),
+                                      value: searchmodel.starRating!),
                                 ),
                               ],
                             ),
@@ -404,9 +418,12 @@ class GrindSingleProduct extends StatelessWidget {
                     ),
                   )
                 ],
-              ));
-        }).toList(),
-      ),
+              ),
+            );
+          }
+          //   },
+          // ).toList(),
+          ),
     );
   }
 }

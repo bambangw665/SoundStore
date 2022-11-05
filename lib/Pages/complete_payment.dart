@@ -8,96 +8,94 @@ import 'package:rive/rive.dart';
 import '../constants.dart';
 import '../Pages/homePage.dart';
 
-class CompletePaymentScreen extends StatefulWidget {
+class CompletePaymentScreen extends StatelessWidget {
   const CompletePaymentScreen({Key? key}) : super(key: key);
 
   @override
-  State<CompletePaymentScreen> createState() => _CompletePaymentScreenState();
-}
+  Widget build(BuildContext context) {
+    StarProgrss() async {
+      var duration = const Duration(seconds: 4);
+      return Timer(duration, () {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
+          return CompliteOrder();
+        }));
+      });
+    }
 
-class _CompletePaymentScreenState extends State<CompletePaymentScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    StarProgrss();
-  }
+    @override
+    Size size = MediaQuery.of(context).size;
 
-  StarProgrss() async {
-    var duration = const Duration(seconds: 4);
-    return Timer(duration, () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        return CompliteOrder();
-      }));
+    return Builder(builder: (context) {
+      StarProgrss();
+      return Scaffold(
+          backgroundColor: kPrimaryColor,
+          body: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  height: 0.7.sh,
+                  width: double.infinity,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 0.3.sh,
+                        width: double.infinity,
+                        child: TextButton(
+                          onPressed: () async {
+                            await Future.delayed(Duration(seconds: 4));
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(builder: (_) {
+                              return CompliteOrder();
+                            }));
+                          },
+                          child: RiveAnimation.asset(
+                            "assets/rive/sounstore_orderanimation.riv",
+                            fit: BoxFit.contain,
+                            animations: ["book"],
+                            artboard: "OrderProgress",
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Text(
+                        "Order Progress",
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      Text(
+                        "Lorem Ipsum is simply dummy \n text of the printing and \n typesetting industry. ",
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 20,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      // Text(StarProgrss().then((value) => null))
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ));
     });
   }
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Scaffold(
-        backgroundColor: kPrimaryColor,
-        body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                height: 0.7.sh,
-                width: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 0.3.sh,
-                      width: double.infinity,
-                      child: RiveAnimation.asset(
-                        "assets/rive/sounstore_orderanimation.riv",
-                        fit: BoxFit.contain,
-                        animations: ["book"],
-                        artboard: "OrderProgress",
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Text(
-                      "Order Progress",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    Text(
-                      "Lorem Ipsum is simply dummy \n text of the printing and \n typesetting industry. ",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300,
-                        fontSize: 20,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ));
-  }
 }
 
-class CompliteOrder extends StatefulWidget {
+class CompliteOrder extends StatelessWidget {
   const CompliteOrder({Key? key}) : super(key: key);
 
-  @override
-  State<CompliteOrder> createState() => _CompliteOrderState();
-}
-
-class _CompliteOrderState extends State<CompliteOrder> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

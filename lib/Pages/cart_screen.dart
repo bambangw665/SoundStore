@@ -7,14 +7,9 @@ import '../constants.dart';
 import '../model/destenasi_model.dart';
 import '../widgets/star_rating_display_widget.dart';
 
-class CartScreen extends StatefulWidget {
+class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
 
-  @override
-  State<CartScreen> createState() => _CartScreenState();
-}
-
-class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -152,10 +147,8 @@ class _CartScreenState extends State<CartScreen> {
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PayementScreen()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PaymentScreen()));
                 },
                 child: Text(
                   "CONFIRM PAYMENT",

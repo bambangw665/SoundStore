@@ -54,8 +54,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               }),
         ],
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -118,7 +118,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       modelChange: HomeModelHeadset,
                       directonAxis: Axis.horizontal,
                     ),
-                    Text("Tabs 3")
+                    ListProductHeadphone(
+                      modelChange: HomeSoundBar,
+                      directonAxis: Axis.horizontal,
+                    ),
                   ],
                 ),
               ),

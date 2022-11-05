@@ -20,10 +20,11 @@ class ListProductHeadphone extends StatelessWidget {
       margin: EdgeInsets.only(left: 15),
       height: 300,
       child: ListView(
+        // physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         scrollDirection: directonAxis!,
         children: modelChange!.map((homeModel) {
-          return FlatButton(
+          return TextButton(
               onPressed: () {
                 Navigator.push(
                     context,

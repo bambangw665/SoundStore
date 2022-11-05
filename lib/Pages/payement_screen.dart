@@ -7,14 +7,20 @@ import '../widgets/appbtn_widget.dart';
 
 import 'complete_payment.dart';
 
-class PayementScreen extends StatefulWidget {
-  const PayementScreen({Key? key}) : super(key: key);
+// class PayementScreen extends StatefulWidget {
+//   const PayementScreen({Key? key}) : super(key: key);
 
-  @override
-  State<PayementScreen> createState() => _PayementScreenState();
-}
+//   @override
+//   State<PayementScreen> createState() => _PayementScreenState();
+// }
 
-class _PayementScreenState extends State<PayementScreen> {
+// class _PayementScreenState extends State<PayementScreen> {
+
+// }
+
+class PaymentScreen extends StatelessWidget {
+  PaymentScreen({Key? key}) : super(key: key);
+
   // selected index
   int selectedIndex = -1;
 

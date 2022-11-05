@@ -79,9 +79,6 @@ class DetailsScreen extends StatelessWidget {
                     height: size.height * 0.1 - 50.h,
                     width: size.height,
                     child: Stack(
-                      overflow: Overflow
-                          .visible, // this widget digunain buat keluar dari parrent
-                      // alignment: Alignment.topRight,
                       children: [
                         Positioned(
                           bottom: 3,
